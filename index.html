@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8" />
+        <title>RemembeRL - Workshop @ CoRL 2025</title>
+        <meta name="description" content="RemembeRL is a workshop at the Conference on Robot Learning (CoRL) 2025 on the intersection of in-context learning, meta-learning, and retrieval-augmented inference for robot learning.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/style.css"  />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/calendar.js"></script>
+
+        <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
+        <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="RemembeRL" />
+        <link rel="manifest" href="site.webmanifest" />
+    </head>
+    <body>
+        <div id="back-to-top">
+            <span class="material-icons">arrow_upward</span>
+        </div>
+        
+        <div id="social-interaction">
+            <div id="social-content">
+                <div id="like-button">
+                    <span class="material-icons">favorite</span>
+                </div>
+                <div id="text-handler">
+                    <div class="message-default">Are you interested in joining this workshop?<br/>
+                        Let us know by clicking on the heart!</div>
+                    <div class="message-liked">Thank you for your interest!<br/>
+                        We look forward to seeing you there.</div>
+                    <div class="counter-info" style="display: none!important;"><span class="material-icons">people</span><span id="counter">0</span> people reacted.</div>
+                    <!-- <div class="counter-info"><span id="counter">0</span> people reacted.</div> -->
+                </div>
+            </div>
+        </div>
+
+        <header>
+            <div id="particles-js"></div>
+            <div id="background-image">
+                <img src="img/background_v2.png" alt="background" />
+            </div>
+            
+            <div id="top-bar">
+                <div id="logo">
+                    <img src="img/logo_v6.png" alt="logo" />
+                </div>
+                
+                <div id="menu">
+                    <ul>
+                        <!-- <li><a href="#">What</a></li> -->
+                        <li><a href="#speakers" class="scroll-link">Speakers</a></li>
+                        <li><a href="#program" class="scroll-link">Program</a></li>
+                        <li><a href="#organizers" class="scroll-link">Organizers</a></li>
+                        <li><a href="#call-for-papers" class="scroll-link cta coming-soon">Call for papers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="main-content">
+                <h1>
+                    RemembeRL: what can past experience tell us about our current action?
+                    <div class="ai-decoration">
+                        <svg viewBox="-10 -10 320 60" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Zigzag line -->
+                            <polyline 
+                                points="0,20 100,5 200,35 300,20" 
+                                fill="none" 
+                                stroke="rgba(255,255,255,0.7)" 
+                                stroke-width="4" 
+                            />
+                            
+                            <!-- Connection nodes -->
+                            <circle cx="0" cy="20" r="10" fill="white" />
+                            <circle cx="100" cy="5" r="10" fill="white" />
+                            <circle cx="200" cy="35" r="10" fill="white" />
+                            <circle cx="300" cy="20" r="10" fill="white" />
+                            
+                            <!-- Particle decorations -->
+                            <!-- <circle cx="50" cy="30" r="2" fill="rgba(255,255,255,0.5)" />
+                            <circle cx="150" cy="15" r="2" fill="rgba(255,255,255,0.5)" />
+                            <circle cx="250" cy="25" r="2" fill="rgba(255,255,255,0.5)" /> -->
+                            
+                            <!-- Glowing effect for main nodes -->
+                            <!-- <circle cx="0" cy="20" r="16" fill="rgba(255,255,255,0.2)" />
+                            <circle cx="100" cy="5" r="16" fill="rgba(255,255,255,0.2)" />
+                            <circle cx="200" cy="35" r="16" fill="rgba(255,255,255,0.2)" />
+                            <circle cx="300" cy="20" r="16" fill="rgba(255,255,255,0.2)" /> -->
+                        </svg>
+                    </div>
+                </h1>
+                <div id="main-details">
+                    <!-- <div>Workshop CoRL 2025</div> -->
+                    <div><span class="material-icons">public</span> Workshop<br/>CoRL 2025</div>
+                    <div><span class="material-icons">location_on</span> COEX Convention & Exhibition Center<br/> Seoul, South Korea</div>
+                    <div><span class="material-icons">event</span>  Saturday<br/>September 27th, 2025</div>
+                    <div><span class="material-icons">schedule</span> Start: 9.30 AM<br/> End: 4.30 PM</div>
+                </div>
+                
+                <div id="main-description" style="margin-top: 40px;">
+                    <p>
+                        Robot learning traditionally relies on applications of machine learning methods via the induction paradigm, i.e. where the agent extrapolates
+                        a policy in the form of a condensed, unified model given a set of training data.
+                        Under this formulation, training data is therefore discarded at test time, and the agent may no longer explicitly reason on past experience to inform its current action. In other words, the agent is not allowed to <b>remember</b> previous situations.
+                        <br/>
+                        However, we observe that humans are able to conveniently recall past experiences to solve decision making problems, and notice a close connection with recent trends towards in-context learning, meta-learning, and retrieval-augmented inference in the Reinforcement Learning (RL) and Imitation Learning (IL) literature.
+                        <br/><br/>
+                        <!-- retrieve / reason / attend / explicitly -->
+                        In this workshop, we investigate how robot learning algorithms can be designed for robotic agents to <b>explicitly retrieve, reason, attend, or leverage on past experience</b> to quickly adapt to previously unseen situations or bootstrap their learning.
+                        <br/>
+                        Recent advances in the field allow agents to remember by framing the problem as <b>in-context learning</b> and <b>meta-learning</b>, e.g. by incorporating memory in the form of explicit, contextual input to a policy.
+                        Similarly, recent works propose retrieval mechanisms (<i>retrieval-augmented policies</i>) for agents to conveniently reason about the current action based on previous experience.
+                        <!-- In the extreme case, the latter approach can even yield fully non-parametric policies that interpolate over a memory of optimal actions in similar situations. -->
+                        <br/><br/>
+
+                        <!-- In relation to the studies about <a href="https://en.wikipedia.org/wiki/Episodic_memory" target="_blank" class="easyLink">episodic and semantic memory by Tulving in 1972</a>, we then raise the question: -->
+                        We then raise the question:
+                        <!-- <br/> -->
+                        <!-- "<b>Should robots <i>know</i> how to act, or should they <i>recall</i> past experience?</b>" -->
+                        "<b>Should robots <i>know</i>, or <i>remember</i> how to act?</b>"
+
+                        <br/><br/>
+                        Our objective is to understand the interconnection between the fields of in-context learning, meta-learning, transductive and retrieval-augmented inference for robot learning applications.
+                        In this context, we aim to discuss about recent contributions, challenges, opportunities and novel directions for future research.
+                    </p>
+
+                    <div id="open-questions">
+                        <h3><span class="material-icons">help_outline</span> Open questions for the community</h3>
+                        <ul>
+                            <li>Should robotic agents <b>know</b> or <b>remember</b> how to act?</li>
+                            <li>How can past experience be integrated implicitly or explicitly in RL and IL algorithms?</li>
+                            <!-- <li>How can we measure the benefits of memory-based approaches in robot learning?</li> -->
+                            <li>Does reasoning on past experience improve agent performance even for tasks that do not require memory?</li>
+                            <li>Can agents generalize their memory over unseen data and tasks? <i>(e.g. in-context learning with OOD contexts)</i></li>
+                            <li>What are the interconnections between in-context learning, meta-learning, and retrieval-based approaches?</li>
+                        </ul>
+                    </div>
+
+                    <!-- <p style="margin-top: 80px; font-weight: bold; text-transform: uppercase; font-size: 1rem;">
+                        Topics covered in this workshop:
+                    </p> -->
+                    <div id="keyword-list">
+                        <span class="keyword">In-context learning</span>
+                        <span class="keyword">Meta learning</span>
+                        <span class="keyword">Transductive inference</span>
+                        <span class="keyword">Retrieval-augmented policies</span>
+                        <span class="keyword">Memory-based policies</span>
+                        <span class="keyword">Non-parametric policies</span>
+                        <span class="keyword">Episodic memory & control</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="main">
+            <div class="tab" id="speakers">
+                <h2>Invited Speakers</h2>
+                <div id="speakers-list">
+                    <!-- <div class="speaker">
+                        <img src="img/speakers/stephen.jpeg" alt="TBD" />
+                        <div class="speaker-info">
+                            <h3>Stephen James</h3>
+                            <div class="affiliation">Imperial College London</div>
+                            <div class="talk-time">
+                                <span class="material-icons">schedule</span>
+                                9:30 - 10:00 AM
+                                In person
+                            </div>
+                            <p class="talk-title">Title of the talk 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="tags">
+                                <span class="tag">Sim-to-Real Transfer</span>
+                                <span class="tag">Generative models</span>
+                                <span class="tag">Robot learning</span>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="speaker">
+                        <img src="img/speakers/stephen.jpeg" alt="TBD" />
+                        <div class="speaker-info">
+                            <h3>Stephen James</h3>
+                            <div class="affiliation">Imperial College London</div>
+                            <!-- <div class="talk-time">
+                                In person
+                            </div> -->
+                            <!-- <p class="talk-title">Title of the talk 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+                            <!-- <div class="tags">
+                                <span class="tag">Sim-to-Real Transfer</span>
+                                <span class="tag">Generative models</span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="speaker">
+                        <img src="img/speakers/chelsea.jpg" alt="TBD" />
+                        <div class="speaker-info">
+                            <h3>Chelsea Finn</h3>
+                            <div class="affiliation">Stanford University</div>
+                            <!-- <div class="talk-time">
+                                In person
+                            </div> -->
+                            <!-- <p class="talk-title">Title of the talk 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+                            <!-- <div class="tags">
+                                <span class="tag">In-context Learning</span>
+                                <span class="tag">Meta-Learning</span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="speaker">
+                        <img src="img/speakers/abhishek_supres.jpeg" alt="TBD" />
+                        <div class="speaker-info">
+                            <h3>Abhishek Gupta</h3>
+                            <div class="affiliation">University of Washington</div>
+                            <!-- <div class="talk-time">
+                                 In person
+                            </div> -->
+                            <!-- <p class="talk-title">Title of the talk 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+                            <!-- <div class="tags">
+                                <span class="tag">Retrieval-augmented policies</span>
+                                <span class="tag">Robot learning</span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="speaker">
+                        <img src="img/speakers/gunhee_2.jpg" alt="TBD" />
+                        <div class="speaker-info">
+                            <h3>Gunhee Kim</h3>
+                            <div class="affiliation">Seoul National University</div>
+                            <!-- <div class="talk-time">
+                                 In person
+                            </div> -->
+                            <!-- <p class="talk-title">Title of the talk 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+                            <!-- <div class="tags">
+                                <span class="tag">In-context RL</span>
+                                <span class="tag">Web/GUI Agent Control</span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="speaker">
+                        <img src="img/speakers/johns.jpg" alt="Edward Johns" />
+                        <div class="speaker-info">
+                            <h3>Edward Johns</h3>
+                            <div class="affiliation">Imperial College London</div>
+                            <!-- <div class="talk-time">
+                                In person &middot; Tentative
+                            </div> -->
+                            <!-- <p class="talk-title">[Tentative]</p> -->
+                            <!-- <div class="tags">
+                                <span class="tag">In-context Learning</span>
+                                <span class="tag">Retrieval-augmented policies</span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="speaker">
+                        <img src="img/speakers/amanda.jpg" alt="Amanda Prorok" />
+                        <div class="speaker-info">
+                            <h3>Amanda Prorok</h3>
+                            <div class="affiliation">University of Cambridge</div>
+                            <!-- <div class="talk-time">
+                                In person &middot; Tentative
+                            </div> -->
+                            <!-- <p class="talk-title">Title of the talk 6. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+                            <!-- <div class="tags">
+                                <span class="tag">Memory-based policies</span>
+                                <span class="tag">Recurrent Neural Networks</span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="speaker">
+                        <img src="img/speakers/hungle.jpg" alt="Hung Le" />
+                        <div class="speaker-info">
+                            <h3>Hung Le</h3>
+                            <div class="affiliation">Deakin University</div>
+                            <!-- <div class="talk-time">
+                                Remote
+                            </div> -->
+                            <!-- <p class="talk-title">Title of the talk 6. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+                            <!-- <div class="tags">
+                                <span class="tag">Memory-based policies</span>
+                                <span class="tag">Recurrent Neural Networks</span>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="tab" id="program-hidden" style="display: none;">
+                <h2>Program</h2>
+                <div class="schedule-container">
+                    <table class="schedule-table">
+                        <tr>
+                            <td class="schedule-time compact">9:20 - 9:30 AM</td>
+                            <td class="schedule-activity compact">
+                                <span class="schedule-category category-activity">Welcome</span><br>
+                                Opening remarks and introduction
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">9:30 - 10:00 AM</td>
+                            <td class="schedule-activity">
+                                <span class="schedule-category category-talk">Invited Talk 1</span><br>
+                                <div class="speaker-name">TBD</div>
+                                Title TBA
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">10:00 - 10:30 AM</td>
+                            <td class="schedule-activity">
+                                <span class="schedule-category category-talk">Invited Talk 2</span><br>
+                                <div class="speaker-name">TBD</div>
+                                Title TBA
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time compact">10:30 - 11:30 AM</td>
+                            <td class="schedule-activity compact">
+                                <span class="schedule-category category-break">Break</span> <span class="schedule-category category-activity">Poster Session 1</span><br>
+                                Coffee break + Poster Session 1
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">11:30 - 12:00 PM</td>
+                            <td class="schedule-activity">
+                                <span class="schedule-category category-talk">Invited Talk 3</span><br>
+                                <div class="speaker-name">TBD</div>
+                                Title TBA
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">12:00 - 12:30 PM</td>
+                            <td class="schedule-activity">
+                                <span class="schedule-category category-talk">Invited Talk 4</span><br>
+                                <div class="speaker-name">TBD</div>
+                                Title TBA
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time compact">12:30 - 1:30 PM</td>
+                            <td class="schedule-activity compact">
+                                <span class="schedule-category category-break">Break</span><br>
+                                Lunch
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">1:30 - 2:00 PM</td>
+                            <td class="schedule-activity">
+                                <span class="schedule-category category-talk">Invited Talk 5</span><br>
+                                <div class="speaker-name">TBD</div>
+                                Title TBA
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">2:00 - 2:30 PM</td>
+                            <td class="schedule-activity">
+                                <span class="schedule-category category-talk">Invited Talk 6</span><br>
+                                <div class="speaker-name">TBD</div>
+                                Title TBA
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time compact">2:30 - 3:15 PM</td>
+                            <td class="schedule-activity compact">
+                                <span class="schedule-category category-break">Break</span> <span class="schedule-category category-activity">Poster Session 2</span><br>
+                                Coffee break + Poster Session 2
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time compact">3:15 - 3:45 PM</td>
+                            <td class="schedule-activity compact">
+                                <span class="schedule-category category-activity">Poster Spotlights</span><br>
+                                Presentations from selected posters
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">3:45 - 4:30 PM</td>
+                            <td class="schedule-activity">
+                                <span class="schedule-category category-panel">Panel Discussion</span><br>
+                                <div class="speaker-name">First last1, First last2, First last3</div>
+                                <!-- "Memory-Based Approaches in Robot Learning: Current Challenges and Future Directions" -->
+                                <div class="panel-questions">
+                                    <h4><span class="material-icons">forum</span> Questions for discussion:</h4>
+                                    <ul>
+                                        <li>Should robots <i>know</i>, or <i>remember</i> how to act?</li>
+                                        <li>Can we, will we, should we give robots a memory?</li>
+                                        <li>Is transduction the new promise for embodied intelligence?</li>
+                                        <li>What about the opportunities of memory-based approaches in terms of interpretability and explainability?</li>
+                                        <li>What are the current bottlenecks in scaling memory-based approaches for complex robot learning tasks?</li>
+                                        <!-- <li>How can we best integrate in-context learning with traditional robot control systems?</li> -->
+                                        <!-- <li>What are the practical limits of non-parametric models?</li> -->
+                                        <!-- <li>What metrics should we use to evaluate the quality and effectiveness of memory-based approaches?</li> -->
+                                    </ul>
+                                    <div class="audience-note">+ questions from the audience</div>
+                                </div>
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time compact">4:30 - 4:40 PM</td>
+                            <td class="schedule-activity compact">
+                                <span class="schedule-category category-activity">Closing</span><br>
+                                Final remarks & award(s)
+                                <button class="add-to-calendar"><span class="material-icons">event</span>Add to Calendar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="tab" id="program">
+                <h2>Program</h2>
+                <div class="coming-soon-container">
+                    <span class="material-icons">schedule</span>
+                    <h3>Coming Soon</h3>
+                    <p>We are currently finalizing the workshop program. Please check back soon for the detailed schedule, speaker presentations, and interactive sessions.</p>
+                </div>
+            </div>
+
+            
+            <div class="tab" id="organizers">
+                <!-- <h2>Organizers & Program Committee</h2> -->
+                <h2>Organizers</h2>
+                <div class="organizers-list">
+                    <div class="organizer">
+                        <div class="organizer-image">
+                            <img src="img/organizers/tiboni.jpg" alt="Gabriele Tiboni" />
+                        </div>
+                        <div class="organizer-info">
+                            <h3>Gabriele Tiboni</h3>
+                            <div class="affiliation">University of Würzburg</div>
+                            <div class="website">
+                                <a href="https://gabrieletiboni.com" target="_blank">
+                                    <span class="material-icons">public</span>
+                                    gabrieletiboni.com
+                                </a>
+                                &middot; Main organizer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="organizer">
+                        <div class="organizer-image">
+                            <img src="img/organizers/ceola.jpeg" alt="Federico Ceola" />
+                        </div>
+                        <div class="organizer-info">
+                            <h3>Federico Ceola</h3>
+                            <div class="affiliation">Italian Institute of Technology (IIT)</div>
+                            <div class="website">
+                                <a href="https://www.iit.it/people-details/-/people/federico-ceola" target="_blank">
+                                    <span class="material-icons">public</span>
+                                    iit.it/federico-ceola
+                                </a>
+                                &middot; Co-organizer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="organizer">
+                        <div class="organizer-image">
+                            <img src="img/organizers/richie.jpg" alt="Yat Long Lo" />
+                        </div>
+                        <div class="organizer-info">
+                            <h3>Yat Long Lo</h3>
+                            <div class="affiliation">Amazon</div>
+                            <div class="website">
+                                <a href="https://richielo.github.io/" target="_blank">
+                                    <span class="material-icons">public</span>
+                                    richielo.github.io
+                                </a>
+                                &middot; Co-organizer
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="organizer">
+                        <div class="organizer-image">
+                            <img src="img/organizers/steven.webp" alt="Steven Li" />
+                        </div>
+                        <div class="organizer-info">
+                            <h3>Steven Li</h3>
+                            <div class="affiliation">TU Darmstadt</div>
+                            <div class="website">
+                                <a href="https://pearl-lab.com/people/steven-li/" target="_blank">
+                                    <span class="material-icons">public</span>
+                                    pearl-lab.com/people/steven-li
+                                </a>
+                                &middot; Co-organizer
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="organizer">
+                        <div class="organizer-image">
+                            <img src="img/organizers/wenyan.jpg" alt="Wenyan Yang" />
+                        </div>
+                        <div class="organizer-info">
+                            <h3>Wenyan Yang</h3>
+                            <div class="affiliation">Aalto University</div>
+                            <div class="website">
+                                <a href="https://uenian33.github.io/" target="_blank">
+                                    <span class="material-icons">public</span>
+                                    uenian33.github.io
+                                </a>
+                                &middot; Co-organizer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="organizer">
+                        <div class="organizer-image">
+                            <img src="img/organizers/vivienne.jpeg" alt="Vivienne Wang" />
+                        </div>
+                        <div class="organizer-info">
+                            <h3>Vivienne Wang</h3>
+                            <div class="affiliation">Aalto University</div>
+                            <div class="website">
+                                <a href="https://vi2enne.github.io/" target="_blank">
+                                    <span class="material-icons">public</span>
+                                    vi2enne.github.io
+                                </a>
+                                &middot; Co-organizer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="organizer">
+                        <div class="organizer-image">
+                            <img src="img/organizers/carlo.jpeg" alt="Carlo D'Eramo" />
+                        </div>
+                        <div class="organizer-info">
+                            <h3>Carlo D'Eramo</h3>
+                            <div class="affiliation">University of Würzburg</div>
+                            <div class="website">
+                                <a href="https://www.caidas.uni-wuerzburg.de/rlcdm/team/carlo-deramo/" target="_blank">
+                                    <span class="material-icons">public</span>
+                                    uni-wuerzburg.de/carlo-deramo
+                                </a>
+                                &middot; Co-organizer
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-committee-section">
+                    <h3 class="program-committee-title">Advisory Board</h3>
+                    <div class="organizers-list ">
+                        <div class="organizer">
+                            <div class="organizer-image">
+                                <img src="img/organizers/georgia.webp" alt="Georgia Chalvatzaki" />
+                            </div>
+                            <div class="organizer-info">
+                                <h3>Georgia Chalvatzaki</h3>
+                                <div class="affiliation">TU Darmstadt</div>
+                                <div class="website">
+                                    <a href="https://pearl-lab.com/people/georgia-chalvatzaki/" target="_blank">
+                                        <span class="material-icons">public</span>
+                                        pearl-lab.com/people/georgia-chalvatzaki
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="organizer">
+                            <div class="organizer-image">
+                                <img src="img/organizers/tatiana_1.jpeg" alt="Tatiana Tommasi" />
+                            </div>
+                            <div class="organizer-info">
+                                <h3>Tatiana Tommasi</h3>
+                                <div class="affiliation">Politecnico di Torino</div>
+                                <div class="website">
+                                    <a href="http://www.tatianatommasi.com/" target="_blank">
+                                        <span class="material-icons">public</span>
+                                        tatianatommasi.com
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="organizer">
+                            <div class="organizer-image">
+                                <img src="img/organizers/jan.png" alt="Jan Peters" />
+                            </div>
+                            <div class="organizer-info">
+                                <h3>Jan Peters</h3>
+                                <div class="affiliation">TU Darmstadt</div>
+                                <div class="website">
+                                    <a href="https://www.ias.informatik.tu-darmstadt.de/Member/JanPeters" target="_blank">
+                                        <span class="material-icons">public</span>
+                                        tu-darmstadt.de/member/JanPeters
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab" id="call-for-papers">
+                <h2>Call for Papers</h2>
+                <div class="cfp-content">
+                    <div class="cfp-intro">
+                        <p>
+                            We invite contributions that explore memory-based, in-context, retrieval-augmented, or transductive approaches to robot learning from diverse perspectives, including but not limited to the following topics. We particularly encourage early-stage ideas and preliminary results that can spark discussion and inspire new directions in the field.
+                        </p>
+                        <p style="font-weight: bold; margin-top: 20px;">
+                            <strong>Note:</strong> at CoRL 2025, only papers that are <strong>NOT</strong> accepted at the main conference can be accepted at the workshop.
+                        </p>
+                    </div>
+
+                    <div class="cfp-topics">
+                        <!-- <h3>Topics</h3> -->
+                        <div class="topics-keywords">
+                            <span class="topic-keyword">In-context Learning for Robotics</span>
+                            <span class="topic-keyword">Meta Learning for Robotics</span>
+                            <span class="topic-keyword">Episodic Memory and Control</span>
+                            <span class="topic-keyword">Retrieval-augmented Policies</span>
+                            <span class="topic-keyword">Non-parametric Policies</span>
+                            <span class="topic-keyword">Memory-based Policies</span>
+                            <span class="topic-keyword">Adaptive Learning and Planning for Control</span>
+                            <span class="topic-keyword">Reinforcement & Imitation Learning</span>
+                            <span class="topic-keyword">Generalization in Robot Learning</span>
+                            <span class="topic-keyword">Transductive Inference</span>
+                            <span class="topic-keyword">Instance-based Learning</span>
+                            <span class="topic-keyword">Context-aware Decision Making</span>
+                            <span class="topic-keyword">Meta-Reasoning and Meta-Cognition</span>
+                            <span class="topic-keyword">Explicit vs. implicit memory</span>
+                            <span class="topic-keyword">Memory architectures</span>
+                            <span class="topic-keyword">Memory efficiency and scalability</span>
+                            <span class="topic-keyword">Evaluation metrics for memory</span>
+                            <span class="topic-keyword">Interpretability of memory systems</span>
+                        </div>
+                    </div>
+
+                    <div class="cfp-submission">
+                        <h3>Submission Format</h3>
+                        <ul>
+                            <li>Papers must be submitted through <strong>OpenReview</strong> (<a href="https://openreview.net/group?id=robot-learning.org/CoRL/2025/Workshop/RemembeRL#tab-your-consoles" class="cfp-link" target="_blank">Link</a>).</li>
+                            <li>Papers are expected to be <strong>4-8 pages</strong> (excluding references, acknowledgments, and optional appendix).</li>
+                            <li>They should be formatted using the <strong>CoRL 2025 LaTeX template</strong> (<a href="https://drive.google.com/file/d/1XalwYG542cg2YAHo8STgZKxhAIA8_HSu/view?usp=sharing" class="cfp-link" target="_blank">Link</a>).</li>
+                            <!-- <li>Acknowledgments, References, and Appendix (optional) will <strong>not count</strong> towards the page limit.</li> -->
+                            <li>Submissions must be <strong>anonymized</strong>.</li>
+                            <li>Authors are encouraged to submit a supplementary file containing further details for reviewers, to be submitted through OpenReview as a single zip file.</li>
+                            <li>Only papers that are <strong>NOT</strong> already accepted at the main conference can be submitted to the workshop (strict policy @ CoRL 2025).</li>
+                        </ul>
+                        <h3 style="margin-top: 40px;">Reviewing Process</h3>
+                        <ul>
+                            <li>The reviewing process will be <strong>double-blind, single-phase</strong> (i.e., no rebuttal).</li>
+                        </ul>
+                        <h3 style="margin-top: 40px;">Publication</h3>
+                        <ul>
+                            <li>Accepted papers will be <strong>non-archival</strong>.</li>
+                            <li>There will be <strong>no formal proceedings</strong>. Accepted papers will be published on the workshop website for future visitors unless otherwise requested by authors.</li>
+                            <li>At least one author for each accepted paper must attend the workshop <strong>in-person</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <!-- <div class="cfp-reviewing">
+                        <h3>Reviewing Process</h3>
+                        <ul>
+                            <li>The reviewing process will be <strong>double-blind, single-phase</strong> (i.e., no rebuttal).</li>
+                        </ul>
+                        <h3 style="margin-top: 20px;">Publication</h3>
+                        <ul>
+                            <li>Accepted papers will be <strong>non-archival</strong>.</li>
+                            <li>There will be <strong>no formal proceedings</strong>.</li>
+                            <li>At least one author for each accepted paper must attend the workshop <strong>in-person</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="cfp-publication">
+                        <h3>Publication</h3>
+                        <ul>
+                            <li>Accepted papers will be <strong>non-archival</strong>.</li>
+                            <li>There will be <strong>no formal proceedings</strong>.</li>
+                            <li>At least one author for each accepted paper must attend the workshop <strong>in-person</strong>.</li>
+                        </ul>
+                    </div> -->
+
+                    <div class="cfp-dates">
+                        <h3>Important Dates</h3>
+                        <div class="dates-list">
+                            <div class="date-item">
+                                <span class="date-label">Submission Deadline:</span>
+                                <span class="date-value">Aug 22th, 2025, AoE</span>
+                            </div>
+                            <div class="date-item">
+                                <span class="date-label">Author Notification:</span>
+                                <span class="date-value">Sep 12th, 2025, AoE</span>
+                            </div>
+                            <div class="date-item">
+                                <span class="date-label">Camera Ready Deadline:</span>
+                                <span class="date-value">Sep 19th, 2025, AoE</span>
+                            </div>
+                            <div class="date-item">
+                                <span class="date-label">Workshop Date:</span>
+                                <span class="date-value">Sep 27th, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="img/logo_v6.png" alt="logo" />
+                    <div class="workshop-title">RemembeRL</div>
+                    <div class="conference">Workshop @ CoRL 2025</div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>For any questions, please reach out to:</h3>
+                    <div class="contact-item">
+                        <span class="material-icons">person</span>
+                        <span>Gabriele Tiboni</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="material-icons">email</span>
+                        <a href="mailto:gabriele.tiboni@uni-wuerzburg.de">gabriele.tiboni@uni-wuerzburg.de</a>
+                    </div>
+                    <!-- <div class="contact-item">
+                        <span class="material-icons">language</span>
+                        <a href="https://corl2025.org" target="_blank">CoRL 2025 Conference</a>
+                    </div> -->
+                </div>
+                
+                <div class="copyright">
+                    &copy; RemembeRL Workshop at CoRL 2025
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // Smooth scrolling for navigation links
+                $('.scroll-link').on('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the target section ID from the href attribute
+                    const targetId = $(this).attr('href');
+                    const targetSection = $(targetId);
+                    
+                    // Calculate the distance to scroll
+                    const scrollDistance = targetSection.offset().top;
+                    
+                    // Scroll to the target section with animation
+                    $('html, body').animate({
+                        scrollTop: scrollDistance
+                    }, 1000, 'swing', function() {
+                        // Update URL hash after scrolling completes
+                        window.location.hash = targetId;
+                    });
+                });
+
+                // Back to top button functionality
+                const backToTopButton = $('#back-to-top');
+                const headerHeight = $('header').outerHeight();
+                
+                // Show button only when scrolled past the header
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() > headerHeight) {
+                        backToTopButton.css({
+                            'opacity': '1',
+                            'visibility': 'visible'
+                        });
+                    } else {
+                        backToTopButton.css({
+                            'opacity': '0',
+                            'visibility': 'hidden'
+                        });
+                    }
+                });
+                
+                // Scroll to top when button is clicked
+                backToTopButton.click(function() {
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 1000, 'swing');
+                    return false;
+                });
+
+                // Like button functionality
+                const likeButton = $('#like-button');
+                const counter = $('#counter');
+                const socialContent = $('#social-content');
+                
+                // Check if user has liked before using localStorage
+                let hasLiked = localStorage.getItem('workshop_liked') === 'true';
+                
+                // Apply active state if previously liked
+                if (hasLiked) {
+                    likeButton.addClass('active');
+                    socialContent.addClass('liked');
+                }
+                
+                // Handle like button click
+                likeButton.click(function() {
+                    // Toggle like state
+                    if (hasLiked) {
+                        // User already liked, so unlike
+                        likeButton.removeClass('active');
+                        socialContent.removeClass('liked');
+                        
+                        // Decrement counter
+                        const currentCount = parseInt(counter.text());
+                        counter.text(Math.max(0, currentCount - 1));
+                        
+                        // Update localStorage
+                        localStorage.removeItem('workshop_liked');
+                        
+                        // Update hasLiked state
+                        hasLiked = false;
+                    } else {
+                        // User hasn't liked yet, so like
+                        likeButton.addClass('active');
+                        
+                        // Show particles animation
+                        createHeartParticles();
+                        
+                        // Increment counter
+                        const currentCount = parseInt(counter.text());
+                        counter.text(currentCount + 1);
+                        
+                        // Mark as liked in localStorage
+                        localStorage.setItem('workshop_liked', 'true');
+                        
+                        // Change social content appearance
+                        socialContent.addClass('liked');
+                        
+                        // Update hasLiked state
+                        hasLiked = true;
+                    }
+                });
+                
+                // Function to create heart particles animation
+                function createHeartParticles() {
+                    const likeButtonPos = likeButton.offset();
+                    const buttonCenterX = likeButtonPos.left + likeButton.width() / 2;
+                    const buttonCenterY = likeButtonPos.top + likeButton.height() / 2;
+                    
+                    // Create multiple particles
+                    for (let i = 0; i < 12; i++) {
+                        const particle = $('<div class="heart-particle"><span class="material-icons">favorite</span></div>');
+                        $('body').append(particle);
+                        
+                        // Random position around the button
+                        const angle = Math.random() * Math.PI * 2;
+                        const distance = 5 + Math.random() * 30;
+                        const x = buttonCenterX + Math.cos(angle) * distance;
+                        const y = buttonCenterY + Math.sin(angle) * distance;
+                        
+                        // Random size
+                        const size = 10 + Math.random() * 15;
+                        
+                        // Calculate final position
+                        const finalDistance = 50 + Math.random() * 80;
+                        const finalX = buttonCenterX + Math.cos(angle) * finalDistance;
+                        const finalY = buttonCenterY + Math.sin(angle) * finalDistance;
+                        
+                        // Apply initial styling
+                        particle.css({
+                            position: 'absolute',
+                            left: x + 'px',
+                            top: y + 'px',
+                            fontSize: size + 'px',
+                            opacity: 1,
+                            transform: 'scale(0.5) rotate(' + (-30 + Math.random() * 60) + 'deg)',
+                            zIndex: 1000
+                        });
+                        
+                        // Animate the particle
+                        particle.animate({
+                            left: finalX + 'px',
+                            top: finalY + 'px',
+                            opacity: 0,
+                            transform: 'scale(1) rotate(' + (-30 + Math.random() * 60) + 'deg)'
+                        }, 1000 + Math.random() * 1000, function() {
+                            // Remove particle after animation
+                            particle.remove();
+                        });
+                    }
+                }
+
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 40,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#ffffff"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": false,
+                            "anim": {
+                                "enable": false,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": false,
+                                "speed": 40,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#ffffff",
+                            "opacity": 0.4,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": false,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 1
+                                }
+                            },
+                            "bubble": {
+                                "distance": 400,
+                                "size": 40,
+                                "duration": 2,
+                                "opacity": 8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 200,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "remove": {
+                                "particles_nb": 2
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            });
+        </script>
+    </body>
+</html>
