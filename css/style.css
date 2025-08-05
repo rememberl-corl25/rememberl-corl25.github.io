@@ -1436,3 +1436,87 @@ footer {
         padding: 25px 20px;
     }
 }
+
+/* Acknowledgements Section */
+.acknowledgements-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px;
+    color: #fff;
+}
+
+.acknowledgements-content p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 25px 0px;
+    text-align: center;
+}
+
+.partners-section {
+    /* margin-top: 40px; */
+    margin: 0px;
+}
+
+.partners-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.partners-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    /* margin-top: 30px; */
+    margin: 0px;
+}
+
+.partner-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-height: 120px;
+    min-width: 200px;
+}
+
+/* .partner-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+} */
+
+.partner-logo img {
+    max-width: 180px;
+    max-height: 80px;
+    object-fit: contain;
+    /* filter: grayscale(100%); */
+    transition: filter 0.3s ease;
+}
+
+.partner-logo:hover img {
+    /* filter: grayscale(0%); */
+}
+
+@media (max-width: 768px) {
+    .partners-grid {
+        gap: 20px;
+    }
+
+    .partner-logo {
+        min-width: 150px;
+        min-height: 100px;
+        padding: 15px;
+    }
+
+    .partner-logo img {
+        max-width: 140px;
+        max-height: 60px;
+    }
+}
