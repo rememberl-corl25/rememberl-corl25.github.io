@@ -161,6 +161,66 @@ header {
     color: white;
 }
 
+/* Deadline extended label styling */
+.cta-container {
+    position: relative;
+}
+
+.deadline-extended-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -40px;
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 12px;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); */
+    box-shadow: 0 2px 12px rgba(52, 211, 153, 0.2);
+    z-index: 10;
+    letter-spacing: 0.3px;
+    text-wrap: nowrap;
+    text-transform: uppercase;
+    /* animation: pulse-glow 1s infinite alternate; */
+    animation: up-and-down 1.5s infinite alternate;
+}
+
+.deadline-extended-label::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #34d399;
+}
+
+@keyframes up-and-down {
+    0% {
+        transform: translateX(-50%) translateY(-1px);
+    }
+    50% {
+        transform: translateX(-50%) translateY(3px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(-1px);
+    }
+}
+
+/* @keyframes pulse-glow {
+    0% {
+        box-shadow: 0 2px 12px rgba(52, 211, 153, 0.2);
+    }
+    100% {
+        box-shadow: 0 2px 12px rgba(52, 211, 153, 0.2);
+    }
+} */
+
 #main-content {
     max-width: 1300px;
     margin: 0 auto;
@@ -1414,6 +1474,10 @@ footer {
     padding: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .date-label {
@@ -1429,6 +1493,45 @@ footer {
     font-weight: 700;
     color: #fff;
     font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Deadline extension styling */
+.date-value .date-old .old-text {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.date-value .date-arrow {
+    margin: 0 8px;
+    color: rgba(255, 255, 255, 0.8);
+    /* display: block; */
+    font-size: 1.2rem;
+    margin: 8px 0;
+    /* transform: rotate(90deg); */
+}
+
+.date-value .date-new {
+    color: #fff;
+    display: block;
+}
+
+.date-badge {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    vertical-align: middle;
+}
+
+.date-badge.extended {
+    background-color: rgba(52, 211, 153, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(52, 211, 153, 0.4);
 }
 
 /* Responsive adjustments for Call for Papers */
