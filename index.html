@@ -53,6 +53,7 @@
                 <div id="menu">
                     <ul>
                         <!-- <li><a href="#">What</a></li> -->
+                        <li><a href="#on-site-notes" class="scroll-link">On-site notes</a></li>
                         <li><a href="#speakers" class="scroll-link">Speakers</a></li>
                         <li><a href="#program" class="scroll-link">Program</a></li>
                         <li><a href="#organizers" class="scroll-link">Organizers</a></li>
@@ -162,6 +163,61 @@
         </header>
 
         <section id="main">
+            <div class="tab" id="on-site-notes">
+                <h2>On-site Notes</h2>
+                <div class="on-site-content">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <span class="material-icons">live_tv</span>
+                            </div>
+                            <div class="info-content">
+                                <h3>Live Streaming</h3>
+                                <p>The event will be live streamed for remote participants. Streaming details will be provided closer to the event date.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <span class="material-icons">location_on</span>
+                            </div>
+                            <div class="info-content">
+                                <h3>Venue Location</h3>
+                                <p>The workshop takes place in <strong>Room E2</strong> on the <strong>3rd floor</strong> of the COEX Convention & Exhibition Center.</p>
+                                <div class="venue-map">
+                                    <img src="img/3rd_floor_map.png" alt="3rd Floor Venue Map - Room E2" class="map-image" />
+                                    <p class="map-caption">3rd Floor Layout - Room E2</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <span class="material-icons">dashboard</span>
+                            </div>
+                            <div class="info-content">
+                                <h3>Poster Specifications</h3>
+                                <p>Poster boards are sized <strong>1960 mm (W) × 920 mm (H)</strong> and should be placed in <strong>Zone 8 (055-060)</strong> at the venue.</p>
+                                <div class="poster-specs">
+                                    <div class="spec-item">
+                                        <span class="spec-label">Width:</span>
+                                        <span class="spec-value">1960 mm</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Height:</span>
+                                        <span class="spec-value">920 mm</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Zone:</span>
+                                        <span class="spec-value">8 (055-060)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="tab" id="speakers">
                 <h2>Invited Speakers</h2>
                 <div id="speakers-list">
@@ -1004,6 +1060,46 @@
                 // Initialize collapsible sections as collapsed
                 $('.collapsible-header').addClass('collapsed');
 
+                // Image modal functionality
+                const modal = $('#image-modal');
+                const modalImg = $('#modal-image');
+                const closeBtn = $('.close');
+
+                // Open modal when map image is clicked
+                $('.map-image').click(function() {
+                    const imgSrc = $(this).attr('src');
+                    const imgAlt = $(this).attr('alt');
+                    
+                    modalImg.attr('src', imgSrc);
+                    modalImg.attr('alt', imgAlt);
+                    modal.css('display', 'block');
+                    
+                    // Prevent body scroll when modal is open
+                    $('body').css('overflow', 'hidden');
+                });
+
+                // Close modal when close button is clicked
+                closeBtn.click(function() {
+                    modal.css('display', 'none');
+                    $('body').css('overflow', 'auto');
+                });
+
+                // Close modal when clicking outside the image
+                modal.click(function(e) {
+                    if (e.target === this) {
+                        modal.css('display', 'none');
+                        $('body').css('overflow', 'auto');
+                    }
+                });
+
+                // Close modal with Escape key
+                $(document).keyup(function(e) {
+                    if (e.keyCode === 27) { // Escape key
+                        modal.css('display', 'none');
+                        $('body').css('overflow', 'auto');
+                    }
+                });
+
                 // Function to create heart particles animation
                 function createHeartParticles() {
                     const likeButtonPos = likeButton.offset();
@@ -1157,5 +1253,13 @@
                 });
             });
         </script>
+
+        <!-- Image Modal -->
+        <div id="image-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img id="modal-image" src="" alt="" />
+            </div>
+        </div>
     </body>
 </html>
