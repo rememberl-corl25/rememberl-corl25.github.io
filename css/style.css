@@ -1963,3 +1963,126 @@ footer {
         max-height: 60px;
     }
 }
+
+
+@media (max-width: 980px) {
+    /* Header and navigation */
+    #top-bar {
+        flex-direction: column;
+        gap: 50px;
+        padding: 20px;
+        padding-top: 0px;
+    }
+    
+    #menu ul {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    /* Main content */
+    #main-content {
+        padding: 0 20px;
+        margin-top: 20px;
+    }
+    
+    #main-content h1 {
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #main-description {
+        max-width: 100%;
+    }
+
+    #background-image, #social-interaction {
+        display: none;
+    }
+    
+    #main-details {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .on-site-content {
+        margin-top: 0px;
+    }
+    
+    #main-details div {
+        margin-right: 0;
+    }
+    
+    /* Sections */
+    .tab {
+        margin-bottom: 60px;
+    }
+    
+    .tab h2 {
+        font-size: 2rem;
+        margin-bottom: 50px;
+    }
+    
+    /* Speakers */
+    #speakers-list {
+        justify-content: flex-start;
+        gap: 0px;
+        
+    }
+    
+    #speakers-list .speaker {
+        flex: 0 0 240px;
+        margin-bottom: 30px;
+    }
+    
+    /* Organizers */
+    .organizers-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .organizer {
+        width: 100%;
+        max-width: 400px;
+        box-sizing: border-box;
+    }
+
+    .organizers-list .website {
+        flex-wrap: wrap;
+    }
+    
+    /* Papers grid */
+    .papers-list {
+        grid-template-columns: 1fr;
+    }
+    
+    /* On-site notes */
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .venue-map {
+        max-width: 100%;
+    }
+    
+    /* Modal */
+    .modal-content {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    .close {
+        top: 5px;
+        right: 15px;
+        font-size: 30px;
+    }
+
+    .spotlight-label {
+        bottom: -6px;
+    }
+}
