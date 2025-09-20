@@ -673,6 +673,36 @@ header {
     background-color: #4361ee;
 }
 
+/* Collapsible section styles */
+.collapsible-header {
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.collapsible-header:hover {
+    opacity: 0.8;
+}
+
+.arrow-icon {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 2.5rem!important;
+}
+
+.collapsible-header.collapsed .arrow-icon {
+    transform: rotate(-90deg);
+}
+
+.collapsible-content {
+    overflow: hidden;
+}
+
 #speakers-list {
     display: flex;
     flex-wrap: wrap;

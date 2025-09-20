@@ -596,8 +596,11 @@
             </div>
 
             <div class="tab" id="call-for-papers">
-                <h2>Call for Papers</h2>
-                <div class="cfp-content">
+                <h2 class="collapsible-header">
+                    Call for Papers
+                    <span class="material-icons arrow-icon">keyboard_arrow_down</span>
+                </h2>
+                <div class="cfp-content collapsible-content" style="display: none;">
                     <div class="cfp-intro">
                         <p>
                             We invite contributions that explore memory-based, in-context, retrieval-augmented, or transductive approaches to robot learning from diverse perspectives, including but not limited to the following topics. We particularly encourage early-stage ideas and preliminary results that can spark discussion and inspire new directions in the field.
@@ -875,6 +878,23 @@
                     }
                 });
                 
+                // Collapsible section functionality
+                $('.collapsible-header').click(function() {
+                    const content = $(this).next('.collapsible-content');
+                    const header = $(this);
+                    
+                    if (content.is(':visible')) {
+                        content.slideUp(300);
+                        header.addClass('collapsed');
+                    } else {
+                        content.slideDown(300);
+                        header.removeClass('collapsed');
+                    }
+                });
+
+                // Initialize collapsible sections as collapsed
+                $('.collapsible-header').addClass('collapsed');
+
                 // Function to create heart particles animation
                 function createHeartParticles() {
                     const likeButtonPos = likeButton.offset();
