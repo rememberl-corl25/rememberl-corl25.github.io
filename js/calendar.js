@@ -41,7 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (timeText.includes('-')) {
                 // Time range (e.g., "9:45 - 10:30 AM")
                 const [start, end] = timeText.split('-').map(t => t.trim());
-                startTime = parseTimeString(start, dateString);
+                
+                // Extract AM/PM from end time and append to start time
+                const amPmMatch = end.match(/\s*(AM|PM)/i);
+                const amPmLabel = amPmMatch ? amPmMatch[1] : '';
+                const startWithAmPm = start + (amPmLabel ? ' ' + amPmLabel : '');
+                
+                startTime = parseTimeString(startWithAmPm, dateString);
                 endTime = parseTimeString(end, dateString);
             } else {
                 // Single time (e.g., "9:30 AM")

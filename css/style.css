@@ -1377,16 +1377,49 @@ footer {
 
 /* Program schedule styling */
 .schedule-container {
-    margin-top: 40px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.8) 100%);
+    margin-top: 10px;
+    /* overflow: hidden; */
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); */
+    /* background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.8) 100%); */
 }
+
+/* Schedule section titles */
+.schedule-section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 20px 0 15px 0;
+    text-align: left;
+    position: relative;
+    padding: 0px 0px 0px 25px;
+}
+    /* .schedule-section-title:first-of-type {
+        margin-top: 0px;
+    } */
+
+.schedule-section-title:first-child {
+    margin-top: 0;
+}
+
+/* .schedule-section-title:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #4361ee, #7209b7);
+    border-radius: 2px;
+} */
 
 .schedule-table {
     width: 100%;
     border-collapse: collapse;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.8) 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 35px;
 }
 
 .schedule-table tr {
@@ -2084,5 +2117,9 @@ footer {
 
     .spotlight-label {
         bottom: -6px;
+    }
+
+    .schedule-time {
+        width: 50px;
     }
 }
